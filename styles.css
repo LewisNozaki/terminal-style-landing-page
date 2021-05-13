@@ -30,3 +30,25 @@ body {
   overflow: auto;
 }
 
+.cmdline {
+  border: 1px solid white;
+  display: flex;
+}
+
+/* .prompt {
+
+} */
+
+/* .input-container {
+
+} */
+
+#cmdline-input {
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  font: inherit;
+  color: inherit;
+  border: none;
+}
+
