@@ -34,6 +34,7 @@ body {
   overflow: auto;
   position: absolute;
   z-index: 2;
+  resize: both;
 }
 
 .cmdline {
@@ -63,6 +64,10 @@ body {
 
 }
 
+.content {
+  padding: .5em;
+}
+
 /* Draggable */
 
 #mydivheader {
@@ -71,4 +76,8 @@ body {
   z-index: 10;
   background-color: #888;
   color: #fff;
+}
+
+#mydivheader:active {
+  cursor: grabbing;
 }

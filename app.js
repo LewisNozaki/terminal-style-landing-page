@@ -2,19 +2,19 @@
 
 let cmdInput = document.getElementById("cmdline-input");
 
-let myOutput = document.getElementsByClassName("output-container")[0];
+let cmdOutput = document.getElementsByClassName("output-container")[0];
 
 const createOutput = (e) => {
   if (e.code === "Enter") {
     // console.log(e.target.value.toLowerCase());
 
     if (e.target.value.toLowerCase() === "clear") {
-      myOutput.innerHTML = "";
+      cmdOutput.innerHTML = "";
     } else {
       let newElem = document.createElement("div");
       newElem.classList.add("prompt");
       newElem.innerHTML = `KenjiNozaki@gmail.com $: ${e.target.value}`;
-      myOutput.appendChild(newElem);
+      cmdOutput.appendChild(newElem);
       // console.log(myOutput)
     }
 
@@ -54,15 +54,15 @@ const dragElement = (elmnt) => {
     // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
+  };
 
   // function that resets to default state
   const initializeElement = () => {
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
-  }
-
+  };
+  
   const dragMouseDown = (e) => {
     // prevents default behavior
     e = e || window.event;
@@ -77,7 +77,7 @@ const dragElement = (elmnt) => {
 
     // execute function whenever the cursor moves:
     document.onmousemove = elementDrag;
-  }
+  };
 
   // Add event listener to the header element inside the container
   cmdHeader.onmousedown = dragMouseDown;
