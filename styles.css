@@ -26,7 +26,6 @@ body {
 /* Layouts */
 
 .container {
-  /* border: 1px solid white; */
   background: #000;
   margin: 0 auto;
   width: 70%;
@@ -39,16 +38,13 @@ body {
 
 .cmdline {
   display: flex;
-
 }
 
 /* .prompt {
-
   width: 15%;
 } */
 
 /* .input-container {
-  border: 1px solid white;
   width: 85%;
 } */
 
@@ -71,7 +67,7 @@ body {
 
 #mydivheader {
   padding: 10px;
-  cursor: move;
+  cursor: grab;
   z-index: 10;
   background-color: #888;
   color: #fff;
