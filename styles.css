@@ -23,6 +23,10 @@ body {
   align-items: center;
 }
 
+input {
+  caret-color: aquamarine;
+}
+
 /* Layouts */
 
 .container {
