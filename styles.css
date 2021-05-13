@@ -15,7 +15,7 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
-  background: #444;
+  background: rgb(160, 120, 130);
   color: white;
   font-family: sans-serif;
   display: flex;
@@ -30,11 +30,13 @@ body {
   margin: 0 auto;
   width: 70%;
   height: 70vh;
-  max-height: 70vh;
   overflow: auto;
   position: absolute;
   z-index: 2;
   resize: both;
+  border-radius: 10px;
+  border: 0.2px solid #807f7f;
+  box-shadow: 0px 15px 30px 10px rgba(0, 0, 0, 0.4);
 }
 
 .cmdline {
@@ -60,9 +62,9 @@ body {
   padding-left: 5px;
 }
 
-.output-container {
+/* .output-container {
 
-}
+} */
 
 .content {
   padding: .5em;
@@ -71,13 +73,49 @@ body {
 /* Draggable */
 
 #mydivheader {
-  padding: 10px;
+  padding: 4px 8px;
   cursor: grab;
   z-index: 10;
-  background-color: #888;
+  background-color: #444;
   color: #fff;
 }
 
 #mydivheader:active {
   cursor: grabbing;
+}
+
+/* buttons */
+
+.button-container {
+  margin-left: -7px;
+  display: flex;
+  width: 5.1%;
+  padding: 0.3rem;
+  align-items: center;
+  justify-content: space-around;
+  /* border: 1px solid white; */
+}
+
+#red,
+#yellow,
+#green {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 100%;
+  cursor: pointer;
+  border: none;
+  /* margin-right: 0.2rem; */
+  /* align-self: center; */
+}
+
+#red {
+  background: #FF605C;
+}
+
+#yellow {
+  background: #FFBD44;
+}
+
+#green {
+  background: #00CA4E;
 }
