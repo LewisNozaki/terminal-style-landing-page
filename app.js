@@ -117,7 +117,7 @@ const myButtonFunc = (e) => {
       isMinimized = !isMinimized;
     }
   } else if (e.target.id === "expand") {
-    console.log("expand selected");
+    mainContainer.requestFullscreen();
   }
 };
 

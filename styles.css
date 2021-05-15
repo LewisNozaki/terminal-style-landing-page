@@ -52,7 +52,6 @@ a {
   border-radius: 10px;
   border: 0.2px solid #807f7f;
   box-shadow: 0px 15px 30px 10px rgba(0, 0, 0, 0.4);
-  transition: all 0.2s ease 0.1s;
 }
 
 .cmdline {
@@ -110,7 +109,6 @@ a {
 }
 
 .button-container {
-  margin-left: -5px;
   width: 70px;
   min-width: 70px;
   padding: 0.3rem;
