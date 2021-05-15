@@ -5,26 +5,40 @@ let cmdInput = document.getElementById("cmdline-input");
 let cmdOutput = document.getElementsByClassName("output-container")[0];
 
 const createOutput = (e) => {
+  // Keypress Enter
   if (e.code === "Enter") {
+    let newElem = document.createElement("div");
+    newElem.innerHTML = `KenjiNozaki@gmail.com: $ ${e.target.value}`;
+    cmdOutput.appendChild(newElem);
+
     if (e.target.value.toLowerCase() === "clear") {
       cmdOutput.innerHTML = "";
-    } else if (e.target.value.toLowerCase() === "exit") {
+    };
+    
+    if (e.target.value.toLowerCase() === "exit") {
       document.getElementsByClassName("container")[0].style.display = "none";
-      document.exitFullscreen();
-    } else {
-      let newElem = document.createElement("div");
-      newElem.classList.add("prompt");
-      newElem.innerHTML = `KenjiNozaki@gmail.com $: ${e.target.value}`;
-      cmdOutput.appendChild(newElem);
-      // console.log(myOutput)
-    }
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      }
+    };
+
+    if (e.target.value.toLowerCase() === "refresh") {
+      cmdOutput.innerHTML = "";
+      location.reload();
+    };
 
     e.target.value = "";
-  }
+  } 
 
+  // Keypress Tab
   if (e.code === "Tab") {
-    console.log(e.target.value);
-    
+    e.preventDefault();
+    if (e.target.value === "h" ||
+        e.target.value === "he" ||
+        e.target.value === "hel") {
+      e.target.value = "help";
+      // e.preventDefault();
+    }
   }
 };
 
@@ -86,7 +100,7 @@ const dragElement = (elmnt) => {
 
 dragElement(document.getElementById("mydiv"));
 
-//////// Button Functionality ////////
+//////// Button Window Functionality ////////
 
 let mainContainer = document.getElementsByClassName("container")[0];
 
@@ -106,7 +120,6 @@ const myButtonFunc = (e) => {
       mainContainer.style.bottom = "0";
       mainContainer.style.left = "0";
       mainContainer.style.top = "calc(100vh - 32px)";
-      console.log(mainContainer.style)
       isMinimized = !isMinimized;
     } else {
       mainContainer.style.height = "70vh";

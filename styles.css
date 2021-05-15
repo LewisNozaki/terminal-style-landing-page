@@ -58,13 +58,13 @@ a {
   display: flex;
 }
 
-/* .prompt {
-  width: 15%;
-} */
+.prompt {
+  width: 192px;
+}
 
-/* .input-container {
-  width: 85%;
-} */
+.input-container {
+  width: calc(100% - 192px);
+}
 
 #cmdline-input {
   width: 100%;
