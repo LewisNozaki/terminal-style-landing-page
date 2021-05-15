@@ -6,10 +6,11 @@ let cmdOutput = document.getElementsByClassName("output-container")[0];
 
 const createOutput = (e) => {
   if (e.code === "Enter") {
-    // console.log(e.target.value.toLowerCase());
-
     if (e.target.value.toLowerCase() === "clear") {
       cmdOutput.innerHTML = "";
+    } else if (e.target.value.toLowerCase() === "exit") {
+      document.getElementsByClassName("container")[0].style.display = "none";
+      document.exitFullscreen();
     } else {
       let newElem = document.createElement("div");
       newElem.classList.add("prompt");
@@ -23,7 +24,7 @@ const createOutput = (e) => {
 
   if (e.code === "Tab") {
     console.log(e.target.value);
-    e.target.value = "";
+    
   }
 };
 
@@ -94,8 +95,6 @@ let contentArea = document.getElementsByClassName("content")[0];
 let buttons = Array.from(document.getElementsByClassName("win-btn"));
 
 let isMinimized = false;
-
-let topPos, leftPos;
 
 const myButtonFunc = (e) => {
   if (e.target.id === "close") {
