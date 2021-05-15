@@ -109,6 +109,7 @@ a {
 .button-container {
   margin-left: -5px;
   width: 70px;
+  min-width: 70px;
   padding: 0.3rem;
   display: flex;
   align-items: center;
@@ -119,9 +120,7 @@ a {
   color: #444;
 }
 
-#red,
-#yellow,
-#green {
+.win-btn {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 100%;
@@ -134,17 +133,17 @@ a {
   font-weight: 900;
 }
 
-#red {
+.red {
   background: #FF605C;
   color: #7e2e2d;
 }
 
-#yellow {
+.yellow {
   background: #FFBD44;
   color: #9f762b;
 }
 
-#green {
+.green {
   background: #00CA4E;
   color: #00762d;
 }

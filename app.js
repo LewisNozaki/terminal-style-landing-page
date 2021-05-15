@@ -84,3 +84,29 @@ const dragElement = (elmnt) => {
 };
 
 dragElement(document.getElementById("mydiv"));
+
+///// Button Functionality ///////
+
+let mainContainer = document.getElementsByClassName("container")[0];
+
+let contentArea = document.getElementsByClassName("content")[0];
+
+let buttons = Array.from(document.getElementsByClassName("win-btn"));
+
+const myButtonFunc = (e) => {
+  if (e.target.id === "close") {
+    mainContainer.style.display = "none";
+  } else if (e.target.id === "minimize") {
+    mainContainer.style.height = "32px";
+    mainContainer.style.width = "400px";
+    mainContainer.style.bottom = "0";
+    mainContainer.style.left = "0";
+  } else if (e.target.id === "expand") {
+    console.log("expand selected");
+  }
+};
+
+buttons.forEach(button => {
+  button.addEventListener("click", myButtonFunc);
+})
+
