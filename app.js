@@ -130,6 +130,7 @@ const myButtonFunc = (e) => {
     }
   } else if (e.target.id === "expand") {
     mainContainer.requestFullscreen();
+    document.getElementById("mydivheader").style.display = "none";
   }
 };
 
