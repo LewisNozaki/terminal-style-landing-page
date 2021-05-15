@@ -85,7 +85,7 @@ const dragElement = (elmnt) => {
 
 dragElement(document.getElementById("mydiv"));
 
-///// Button Functionality ///////
+//////// Button Functionality ////////
 
 let mainContainer = document.getElementsByClassName("container")[0];
 
@@ -93,14 +93,29 @@ let contentArea = document.getElementsByClassName("content")[0];
 
 let buttons = Array.from(document.getElementsByClassName("win-btn"));
 
+let isMinimized = false;
+
+let topPos, leftPos;
+
 const myButtonFunc = (e) => {
   if (e.target.id === "close") {
     mainContainer.style.display = "none";
   } else if (e.target.id === "minimize") {
-    mainContainer.style.height = "32px";
-    mainContainer.style.width = "400px";
-    mainContainer.style.bottom = "0";
-    mainContainer.style.left = "0";
+    if (!isMinimized) {
+      mainContainer.style.height = "32px";
+      mainContainer.style.width = "400px";
+      mainContainer.style.bottom = "0";
+      mainContainer.style.left = "0";
+      mainContainer.style.top = "calc(100vh - 32px)";
+      console.log(mainContainer.style)
+      isMinimized = !isMinimized;
+    } else {
+      mainContainer.style.height = "70vh";
+      mainContainer.style.width = "50%";
+      mainContainer.style.top = "calc(50vh - 35vh)";
+      mainContainer.style.left = "25%";
+      isMinimized = !isMinimized;
+    }
   } else if (e.target.id === "expand") {
     console.log("expand selected");
   }
@@ -108,5 +123,5 @@ const myButtonFunc = (e) => {
 
 buttons.forEach(button => {
   button.addEventListener("click", myButtonFunc);
-})
+});
 
