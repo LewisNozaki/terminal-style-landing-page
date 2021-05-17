@@ -110,6 +110,8 @@ let buttons = Array.from(document.getElementsByClassName("win-btn"));
 
 let isMinimized = false;
 
+let showHeader = true;
+
 const myButtonFunc = (e) => {
   if (e.target.id === "close") {
     mainContainer.style.display = "none";
@@ -130,7 +132,12 @@ const myButtonFunc = (e) => {
     }
   } else if (e.target.id === "expand") {
     mainContainer.requestFullscreen();
-    document.getElementById("mydivheader").style.display = "none";
+    if (showHeader) {
+      document.getElementById("mydivheader").style.display = "none";
+    } else {
+      document.getElementById("mydivheader").style.display = "block";
+    }
+    showHeader = !showHeader;
   }
 };
 
