@@ -131,13 +131,18 @@ const myButtonFunc = (e) => {
       isMinimized = !isMinimized;
     }
   } else if (e.target.id === "expand") {
-    mainContainer.requestFullscreen();
-    if (showHeader) {
+    if (!document.fullscreenElement) {
+      mainContainer.requestFullscreen();
       document.getElementById("mydivheader").style.display = "none";
-    } else {
-      document.getElementById("mydivheader").style.display = "block";
     }
-    showHeader = !showHeader;
+
+    // mainContainer.requestFullscreen();
+    // if (showHeader) {
+    //   document.getElementById("mydivheader").style.display = "none";
+    // } else {
+    //   document.getElementById("mydivheader").style.display = "block";
+    // }
+    // showHeader = !showHeader;
   }
 };
 
@@ -145,3 +150,9 @@ buttons.forEach(button => {
   button.addEventListener("click", myButtonFunc);
 });
 
+document.addEventListener("fullscreenchange", (e) => {
+  console.log(e);
+  // if (e.code === "Escape") {
+  //   document.getElementById("mydivheader").style.display = "flex";
+  // }
+})
