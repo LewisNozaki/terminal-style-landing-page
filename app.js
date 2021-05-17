@@ -110,8 +110,6 @@ let buttons = Array.from(document.getElementsByClassName("win-btn"));
 
 let isMinimized = false;
 
-let showHeader = true;
-
 const myButtonFunc = (e) => {
   if (e.target.id === "close") {
     mainContainer.style.display = "none";
@@ -132,27 +130,11 @@ const myButtonFunc = (e) => {
     }
   } else if (e.target.id === "expand") {
     if (!document.fullscreenElement) {
-      mainContainer.requestFullscreen();
-      document.getElementById("mydivheader").style.display = "none";
+      contentArea.requestFullscreen();
     }
-
-    // mainContainer.requestFullscreen();
-    // if (showHeader) {
-    //   document.getElementById("mydivheader").style.display = "none";
-    // } else {
-    //   document.getElementById("mydivheader").style.display = "block";
-    // }
-    // showHeader = !showHeader;
   }
 };
 
 buttons.forEach(button => {
   button.addEventListener("click", myButtonFunc);
 });
-
-document.addEventListener("fullscreenchange", (e) => {
-  console.log(e);
-  // if (e.code === "Escape") {
-  //   document.getElementById("mydivheader").style.display = "flex";
-  // }
-})
