@@ -108,26 +108,11 @@ let contentArea = document.getElementsByClassName("content")[0];
 
 let buttons = Array.from(document.getElementsByClassName("win-btn"));
 
-let isMinimized = false;
-
 const myButtonFunc = (e) => {
   if (e.target.id === "close") {
     mainContainer.style.display = "none";
   } else if (e.target.id === "minimize") {
-    if (!isMinimized) {
-      mainContainer.style.height = "32px";
-      mainContainer.style.width = "400px";
-      mainContainer.style.bottom = "0";
-      mainContainer.style.left = "0";
-      mainContainer.style.top = "calc(100vh - 32px)";
-      isMinimized = !isMinimized;
-    } else {
-      mainContainer.style.height = "70vh";
-      mainContainer.style.width = "50%";
-      mainContainer.style.top = "calc(50vh - 35vh)";
-      mainContainer.style.left = "25%";
-      isMinimized = !isMinimized;
-    }
+    mainContainer.classList.toggle("minimize");
   } else if (e.target.id === "expand") {
     if (!document.fullscreenElement) {
       contentArea.requestFullscreen();
