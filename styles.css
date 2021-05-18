@@ -61,8 +61,9 @@ a {
   opacity: 0.9;
 }
 
+.container:focus-within,
 .container:focus {
-  background-color: plum;
+  opacity: 0.9;
 }
 
 .cmdline {
@@ -90,8 +91,9 @@ a {
   padding-left: 5px;
 }
 
-#cmdline-input:focus .container {
-  background: yellow;
+#cmdline-input:focus .container,
+#cmdline-input:focus-within .container {
+  opacity: 0.9;
 }
 
 /* .output-container {
@@ -99,6 +101,10 @@ a {
 
 .content {
   padding: .5em;
+}
+
+.opacity {
+  opacity: 0.5;
 }
 
 /* ////// */

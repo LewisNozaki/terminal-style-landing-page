@@ -149,8 +149,9 @@ buttons.forEach(button => {
 
 document.addEventListener("click", (e) => {
   if (e.target.classList[0] === "terminal") {
-    mainContainer.style.opacity = "0.7";
+    // mainContainer.style.opacity = "0.7";
+    mainContainer.classList.toggle("opacity");
   } else {
-    mainContainer.style.opacity = "1";
+    mainContainer.classList.toggle("opacity");
   }
 });
