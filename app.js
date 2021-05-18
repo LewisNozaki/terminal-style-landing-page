@@ -113,19 +113,19 @@ const css = window.document.styleSheets[0];
 const myButtonFunc = (e) => {
   if (e.target.id === "close") {
     mainContainer.style.display = "none";
+
   } else if (e.target.id === "minimize") {
+    // let boxLeft = mainContainer.offsetLeft;
 
-    let boxLeft = mainContainer.offsetLeft;
-    let boxTop = mainContainer.offsetTop;
+    // let boxTop = mainContainer.offsetTop;
 
-    css.insertRule(`
-    @keyframes myAnimation {
-      100% {
-        width: 400px;
-        height: 32px;
-        transform: translateX(-${boxLeft}px) translateY(-${boxTop}px); 
-      }
-    }`, css.cssRules.length);
+    // css.insertRule(`
+    // @keyframes myAnimation {
+    //   100% {
+    //     width: 400px;
+    //     height: 32px;
+    //   }
+    // }`, css.cssRules.length);
 
     mainContainer.classList.toggle("minimize");
 
@@ -133,6 +133,7 @@ const myButtonFunc = (e) => {
     if (!document.fullscreenElement) {
       contentArea.requestFullscreen();
     }
+
   }
 };
 
@@ -142,8 +143,8 @@ buttons.forEach(button => {
 
 document.addEventListener("click", (e) => {
   if (e.target.classList[0] === "terminal") {
-    mainContainer.style.opacity = "1";
+    mainContainer.style.opacity = "0.7";
   } else {
-    mainContainer.style.opacity = "0.5";
+    mainContainer.style.opacity = "1";
   }
 });
