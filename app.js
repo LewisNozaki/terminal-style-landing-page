@@ -112,7 +112,23 @@ const myButtonFunc = (e) => {
   if (e.target.id === "close") {
     mainContainer.style.display = "none";
   } else if (e.target.id === "minimize") {
+
+    let boxLeft = mainContainer.offsetLeft;
+    let boxTop = mainContainer.offsetTop;
+
+    console.log(boxLeft);
+
+    const css = window.document.styleSheets[0];
+    css.insertRule(`
+      @keyframes myAnimation {
+        100% { 
+          transform: translateX(-${boxLeft}px) translateY(${boxTop}px); 
+          width: 400px;
+        }
+      }`, css.cssRules.length);
+
     mainContainer.classList.toggle("minimize");
+
   } else if (e.target.id === "expand") {
     if (!document.fullscreenElement) {
       contentArea.requestFullscreen();

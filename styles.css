@@ -100,7 +100,7 @@ a {
 
 #mydivheader {
   padding: 4px;
-  cursor: grab;
+  /* cursor: grab; */
   z-index: 2;
   background-color: #444;
   display: flex;
@@ -109,7 +109,7 @@ a {
 }
 
 #mydivheader:active {
-  cursor: grabbing;
+  /* cursor: grabbing; */
 }
 
 .header-title {
@@ -174,8 +174,7 @@ a {
 /* ////////// */
 
 .minimize {
-  animation: move-box-1 0.3s forwards;
-  /* transition: all 0.3s ease; */
+  animation: myAnimation 0.3s forwards;
 }
 
 @keyframes move-box-1 {
