@@ -44,7 +44,9 @@ const createOutput = (e) => {
 
 cmdInput.addEventListener("keydown", createOutput);
 
+///////////////////////////
 //////// Draggable ////////
+///////////////////////////
 
 const dragElement = (elmnt) => {
   let pos1 = 0, 
@@ -100,7 +102,9 @@ const dragElement = (elmnt) => {
 
 dragElement(document.getElementById("mydiv"));
 
+/////////////////////////////////////////////
 //////// Button Window Functionality ////////
+/////////////////////////////////////////////
 
 let mainContainer = document.getElementsByClassName("container")[0];
 
@@ -141,10 +145,12 @@ buttons.forEach(button => {
   button.addEventListener("click", myButtonFunc);
 });
 
+// focus functionality
+
 document.addEventListener("click", (e) => {
   if (e.target.classList[0] === "terminal") {
     mainContainer.style.opacity = "0.7";
   } else {
-    mainContainer.style.opacity = "0.9";
+    mainContainer.style.opacity = "1";
   }
 });
