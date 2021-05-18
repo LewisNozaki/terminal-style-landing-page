@@ -145,6 +145,6 @@ document.addEventListener("click", (e) => {
   if (e.target.classList[0] === "terminal") {
     mainContainer.style.opacity = "0.7";
   } else {
-    mainContainer.style.opacity = "1";
+    mainContainer.style.opacity = "0.9";
   }
 });
