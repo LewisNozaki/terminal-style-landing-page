@@ -117,7 +117,7 @@ const myButtonFunc = (e) => {
 
     let boxLeft = mainContainer.offsetLeft;
     let boxTop = mainContainer.offsetTop;
-    
+
     css.insertRule(`
     @keyframes myAnimation {
       100% {
@@ -138,4 +138,12 @@ const myButtonFunc = (e) => {
 
 buttons.forEach(button => {
   button.addEventListener("click", myButtonFunc);
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList[0] === "terminal") {
+    mainContainer.style.opacity = "1";
+  } else {
+    mainContainer.style.opacity = "0.5";
+  }
 });

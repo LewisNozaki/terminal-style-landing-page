@@ -58,6 +58,7 @@ a {
   border-radius: 10px;
   border: 0.2px solid #807f7f;
   box-shadow: 0px 15px 30px 10px rgba(0, 0, 0, 0.4);
+  /* opacity: 0.5; */
 }
 
 .container:focus {
@@ -175,12 +176,4 @@ a {
 
 .minimize {
   animation: myAnimation 0.3s forwards;
-}
-
-@keyframes move-box-1 {
-  100% {
-    width: 400px;
-    height: 32px;
-    transform: translateY(40vh);
-  }
 }
