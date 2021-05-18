@@ -18,7 +18,8 @@ body {
   padding: 0;
   margin: 0;
   background: rgb(160, 120, 130);
-  background: url("https://cdn.dribbble.com/users/43762/screenshots/1438974/ng-colab-space_night.gif");
+  /* background: url("https://cdn.dribbble.com/users/43762/screenshots/1438974/ng-colab-space_night.gif"); */
+  background: url("Earth.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -73,10 +74,12 @@ a {
 
 .prompt {
   width: 192px;
+  color: #bd93f9;
 }
 
 .input-container {
   width: calc(100% - 192px);
+  /* background-color: #44475a; */
 }
 
 #cmdline-input {
