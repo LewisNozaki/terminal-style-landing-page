@@ -108,6 +108,8 @@ let contentArea = document.getElementsByClassName("content")[0];
 
 let buttons = Array.from(document.getElementsByClassName("win-btn"));
 
+const css = window.document.styleSheets[0];
+
 const myButtonFunc = (e) => {
   if (e.target.id === "close") {
     mainContainer.style.display = "none";
@@ -115,17 +117,15 @@ const myButtonFunc = (e) => {
 
     let boxLeft = mainContainer.offsetLeft;
     let boxTop = mainContainer.offsetTop;
-
-    console.log(boxLeft);
-
-    const css = window.document.styleSheets[0];
+    
     css.insertRule(`
-      @keyframes myAnimation {
-        100% { 
-          transform: translateX(-${boxLeft}px) translateY(${boxTop}px); 
-          width: 400px;
-        }
-      }`, css.cssRules.length);
+    @keyframes myAnimation {
+      100% {
+        width: 400px;
+        height: 32px;
+        transform: translateX(-${boxLeft}px) translateY(-${boxTop}px); 
+      }
+    }`, css.cssRules.length);
 
     mainContainer.classList.toggle("minimize");
 
