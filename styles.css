@@ -71,8 +71,8 @@ a {
 }
 
 .content {
-  padding: .5em;
-  font-size: 1rem;
+  /* padding: .5em; */
+  font-size: 0.9rem;
 }
 
 .cmdline {
@@ -80,7 +80,10 @@ a {
 }
 
 .prompt {
-  padding: 3px;
+  padding: 0.4rem;
+  /* border: 1px solid white; */
+  width: 360px;
+  max-width: 400px;
 }
 
 .main-directory {
@@ -88,19 +91,26 @@ a {
 }
 
 .arrow {
-  color: pink;
+  color: plum;
   font-weight: 900;
-  /* margin: 0 0.1rem; */
+}
+
+.branch {
+  color: aqua;
 }
 
 .status-bar {
   color: aquamarine;
 }
 
+.dollar-sign {
+  font-weight: 900;
+}
+
 .input-container {
-  /* width: calc(100% - 192px); */
-  /* padding: 0.4rem; */
-  /* background-color: #44475a; */
+  /* border: 1px solid white; */
+  width: calc(100% - 360px);
+  padding: 0.4rem;
 }
 
 #cmdline-input {
@@ -110,8 +120,6 @@ a {
   font: inherit;
   color: inherit;
   border: none;
-  padding-left: 5px;
-  padding-top: 3px;
 }
 
 #cmdline-input:focus .container,
