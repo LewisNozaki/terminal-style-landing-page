@@ -117,27 +117,12 @@ const css = window.document.styleSheets[0];
 const myButtonFunc = (e) => {
   if (e.target.id === "close") {
     mainContainer.style.display = "none";
-
   } else if (e.target.id === "minimize") {
-    // let boxLeft = mainContainer.offsetLeft;
-
-    // let boxTop = mainContainer.offsetTop;
-
-    // css.insertRule(`
-    // @keyframes myAnimation {
-    //   100% {
-    //     width: 400px;
-    //     height: 32px;
-    //   }
-    // }`, css.cssRules.length);
-
     mainContainer.classList.toggle("minimize");
-
   } else if (e.target.id === "expand") {
     if (!document.fullscreenElement) {
       contentArea.requestFullscreen();
     }
-
   }
 };
 
@@ -145,13 +130,31 @@ buttons.forEach(button => {
   button.addEventListener("click", myButtonFunc);
 });
 
-// focus functionality
+/////////////////////////////////
+// focus opacity functionality //
+/////////////////////////////////
+
+let isFocused = true;
 
 document.addEventListener("click", (e) => {
   if (e.target.classList[0] === "terminal") {
-    // mainContainer.style.opacity = "0.7";
-    mainContainer.classList.toggle("opacity");
+    if (isFocused) {
+      mainContainer.classList.toggle("opacity");
+      isFocused = !isFocused;
+    }
   } else {
-    mainContainer.classList.toggle("opacity");
+    if (!isFocused) {
+      mainContainer.classList.toggle("opacity");
+      isFocused = !isFocused;
+    }
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Tab") {
+    if(!isFocused) {
+      isFocused = !isFocused;
+      mainContainer.classList.toggle("opacity")
+    }
   }
 });
