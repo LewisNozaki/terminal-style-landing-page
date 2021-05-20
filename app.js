@@ -34,7 +34,6 @@ const createOutput = (e) => {
       `;
     
     newElem.innerHTML = promptResponse;
-
     cmdOutput.appendChild(newElem);
 
     let userInput = e.target.value.toLowerCase();
@@ -57,18 +56,20 @@ const createOutput = (e) => {
     if (userInput === "help") {
       let newElem2 = document.createElement("div");
 
+      let promptDisplay = prompts.map(item => 
+        `<li>${item[0] + " " + item[1]}</li>`
+      ).join("");
+      
       let promptResponse2 = `
-      <div class="results">
-        <div>
-          Type any of the following commands into the terminal.
-        </div>
-        <ul>
-          ${prompts.map(item => 
-            `<li>${item[0] + " " + item[1]}</li>`
-          ).join("")}
-        </ul>
-        <div>Press [Enter] to execute</div>
-      </div>`;
+        <div class="results">
+          <div>
+            Type any of the following commands into the terminal.
+          </div>
+          <ul>
+            ${promptDisplay}
+          </ul>
+          <div>Press [Enter] to execute</div>
+        </div>`;
       
       newElem2.innerHTML = promptResponse2;
 
@@ -80,7 +81,7 @@ const createOutput = (e) => {
     // resets input value;
     e.target.value = "";
     comment.innerHTML = "";
-  } 
+  }
 
 
 
@@ -89,11 +90,9 @@ const createOutput = (e) => {
     let str = e.target.value.toLowerCase();
 
     if (str !== "") {
-      // e.preventDefault();
-
       let optionsArray = [];
       let chosenOption = "";
-
+      
       prompts.forEach(item => {
         if(item[0].search(str) === 0) {
           console.log("found", item[0], "string:" + str);
@@ -103,25 +102,29 @@ const createOutput = (e) => {
           chosenOption = item[0];
         };
       });
-      
+
       if (optionsArray.length > 1) {
         let options = document.getElementsByClassName("options")[0];
 
         let newElem3 = document.createElement("div");
 
         let optionList = `
-        ${optionsArray.map(item => 
-          `<button>${item}</button>`
-          ).join("")}
-        `;
-
+          ${optionsArray.map(item => 
+            `<button>${item}</button>`
+            ).join("")}
+          `;
+        
         newElem3.innerHTML = optionList;
 
         options.appendChild(newElem3);
 
+        comment.innerHTML = "";
+
       } else {
+        e.preventDefault();
         e.target.value = chosenOption;
       }
+      
     }
   }
 };
