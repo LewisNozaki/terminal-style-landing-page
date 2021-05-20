@@ -18,8 +18,6 @@ body {
   padding: 0;
   margin: 0;
   background: #282a36;
-  /* background: url("https://cdn.dribbble.com/users/43762/screenshots/1438974/ng-colab-space_night.gif"); */
-  background: url("Earth.jpg");
   background: url("mountain.jpeg");
   background-position: center;
   background-size: cover;
@@ -85,6 +83,7 @@ li {
 .prompt {
   padding: 0.2rem 0.4rem;
   width: 370px;
+  /* background-color: #44475a; */
 }
 
 .one {
@@ -97,11 +96,11 @@ li {
 }
 
 .two {
-  color: aqua;
+  color:#8be9fd;
 }
 
 .three {
-  color: aquamarine;
+  color: #50fa7b;
 }
 
 .bold {
@@ -111,6 +110,7 @@ li {
 .input-container {
   width: calc(100% - 360px);
   padding: 0.2rem 0;
+  background-color: #44475a;
 }
 
 #cmdline-input {

@@ -51,20 +51,20 @@ const createOutput = (e) => {
     if (userInput === "refresh") {
       location.reload();
     };
-    
+
     if (userInput === "help") {
       let newElem2 = document.createElement("div");
 
       let promptResponse2 = `
       <div>
-        Type any of the following commands into the terminal and press [Enter] to execute.
+        Type any of the following commands into the terminal.
       </div>
       <ul>
         ${prompts.map(item => 
           `<li>${item}</li>`
         ).join("")}
       </ul>
-      `;
+      <div>Press [Enter] to execute</div>`;
       
       newElem2.innerHTML = promptResponse2;
 
@@ -81,11 +81,12 @@ const createOutput = (e) => {
 
   /// Keypress Tab ///
   if (e.code === "Tab") {
-    e.preventDefault();
+    // e.preventDefault();
 
     let str = e.target.value.toLowerCase();
 
     if (str !== "") {
+      e.preventDefault();
       prompts.forEach(item => {
         if(item.search(str) === 0) {
           console.log("found", item, "string:" + str);
