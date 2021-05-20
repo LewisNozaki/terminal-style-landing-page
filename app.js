@@ -11,12 +11,12 @@ let comment = document.getElementsByClassName("comment")[0];
 let options = document.getElementsByClassName("options")[0];
 
 let prompts = [
-  ["exit", "~closes the terminal window"],
-  ["help", "~displays a list of commands"],
-  ["ls", "~displays all of the files in the directory"],
-  ["cat", "~executable command to open a specfic file. Type 'cat' before a file name to open that file"],
-  ["clear", "~clears the terminal"],
-  ["refresh", "~refreshes the browser window"],
+  ["exit", " ~ closes the terminal window"],
+  ["help", " ~ displays a list of commands"],
+  ["ls", " ~ displays all of the files in the directory"],
+  ["cat", " ~ executable command to open a specfic file. Type 'cat' before a file name to open that file"],
+  ["clear", " ~ clears the terminal"],
+  ["refresh", " ~ refreshes the browser window"],
 ];
 
 const createOutput = (e) => {
@@ -60,7 +60,9 @@ const createOutput = (e) => {
       let newElem2 = document.createElement("div");
 
       let promptDisplay = prompts.map(item => 
-        `<li>${item[0] + " " + item[1]}</li>`
+        `<li>
+          <strong>${item[0]}</strong>${item[1]}
+        </li>`
       ).join("");
       
       let promptResponse2 = `
@@ -107,11 +109,6 @@ const createOutput = (e) => {
       });
 
       if (optionsArray.length > 1) {
-        // options.addEventListener("keydown", (e) => {
-        //   console.log(e.target);
-        //   e.preventDefault();
-        // });
-        
         let newElem3 = document.createElement("div");
 
         let optionList = optionsArray.map(item => { 
@@ -130,6 +127,7 @@ const createOutput = (e) => {
           btn.addEventListener("click", (elm) => {
             e.target.value = elm.target.innerHTML;
             e.target.focus();
+            // resets options div
             options.innerHTML = "";
           })
         })
