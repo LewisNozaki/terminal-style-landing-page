@@ -51,15 +51,21 @@ const createOutput = (e) => {
     if (userInput === "refresh") {
       location.reload();
     };
-
+    
     if (userInput === "help") {
       let newElem2 = document.createElement("div");
 
       let promptResponse2 = `
       <div>
-        Type any of the following commands into the terminal and press [Enter] to execute
-      </div>`;
-
+        Type any of the following commands into the terminal and press [Enter] to execute.
+      </div>
+      <ul>
+        ${prompts.map(item => 
+          `<li>${item}</li>`
+        ).join("")}
+      </ul>
+      `;
+      
       newElem2.innerHTML = promptResponse2;
 
       cmdOutput.appendChild(newElem2);
@@ -79,13 +85,15 @@ const createOutput = (e) => {
 
     let str = e.target.value.toLowerCase();
 
-    prompts.forEach(item => {
-      if(item.search(str) === 0) {
-        console.log("found", item);
-
-        e.target.value = item;
-      };
-    });
+    if (str !== "") {
+      prompts.forEach(item => {
+        if(item.search(str) === 0) {
+          console.log("found", item, "string:" + str);
+  
+          e.target.value = item;
+        };
+      });
+    }
   }
 };
 
