@@ -88,6 +88,7 @@ const createOutput = (e) => {
     // resets input value;
     e.target.value = "";
     comment.innerHTML = "";
+    showOptionsAlready = false;
   }
 
   /// Keypress Tab ///
@@ -100,7 +101,7 @@ const createOutput = (e) => {
 
       prompts.forEach(item => {
         if(item[0].search(str) === 0) {
-          console.log("found", item[0], "string:" + str);
+          // console.log("found", item[0], "string:" + str);
 
           optionsArray.push(item[0]);
           
@@ -109,7 +110,6 @@ const createOutput = (e) => {
       });
 
       if (optionsArray.length > 1) {
-        console.log(showOptionsAlready);
         if (!showOptionsAlready) {
           let newElem3 = document.createElement("div");
 
@@ -120,7 +120,7 @@ const createOutput = (e) => {
           newElem3.innerHTML = optionList;
   
           options.appendChild(newElem3);
-  
+          
           comment.innerHTML = "";
   
           let btns = [...document.getElementsByClassName("btn")];
