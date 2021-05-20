@@ -8,6 +8,8 @@ let results = document.getElementsByClassName("results")[0];
 
 let comment = document.getElementsByClassName("comment")[0];
 
+let options = document.getElementsByClassName("options")[0];
+
 let prompts = [
   ["exit", "~closes the terminal window"],
   ["help", "~displays a list of commands"],
@@ -40,6 +42,7 @@ const createOutput = (e) => {
 
     if (userInput === "clear") {
       cmdOutput.innerHTML = "";
+      options.innerHTML = "";
     };
     
     if (userInput === "exit") {
@@ -92,7 +95,7 @@ const createOutput = (e) => {
     if (str !== "") {
       let optionsArray = [];
       let chosenOption = "";
-      
+
       prompts.forEach(item => {
         if(item[0].search(str) === 0) {
           console.log("found", item[0], "string:" + str);
@@ -104,21 +107,31 @@ const createOutput = (e) => {
       });
 
       if (optionsArray.length > 1) {
-        let options = document.getElementsByClassName("options")[0];
+        // options.addEventListener("keydown", (e) => {
+        //   console.log(e.target);
+        //   e.preventDefault();
+        // });
 
         let newElem3 = document.createElement("div");
 
-        let optionList = `
-          ${optionsArray.map(item => 
-            `<button>${item}</button>`
-            ).join("")}
-          `;
+        let optionList = optionsArray.map(item => { 
+          return `<button class="btn">${item}</button>`
+        }).join("");
         
         newElem3.innerHTML = optionList;
 
         options.appendChild(newElem3);
 
         comment.innerHTML = "";
+
+        let btns = [...document.getElementsByClassName("btn")];
+
+        btns.forEach(btn => {
+          btn.addEventListener("click", (elm) => {
+            e.target.value = elm.target.innerHTML;
+            e.target.focus();
+          })
+        })
 
       } else {
         e.preventDefault();
