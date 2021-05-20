@@ -89,14 +89,39 @@ const createOutput = (e) => {
     let str = e.target.value.toLowerCase();
 
     if (str !== "") {
-      e.preventDefault();
+      // e.preventDefault();
+
+      let optionsArray = [];
+      let chosenOption = "";
+
       prompts.forEach(item => {
         if(item[0].search(str) === 0) {
           console.log("found", item[0], "string:" + str);
-  
-          e.target.value = item[0];
+
+          optionsArray.push(item[0]);
+          
+          chosenOption = item[0];
         };
       });
+      
+      if (optionsArray.length > 1) {
+        let options = document.getElementsByClassName("options")[0];
+
+        let newElem3 = document.createElement("div");
+
+        let optionList = `
+        ${optionsArray.map(item => 
+          `<button>${item}</button>`
+          ).join("")}
+        `;
+
+        newElem3.innerHTML = optionList;
+
+        options.appendChild(newElem3);
+
+      } else {
+        e.target.value = chosenOption;
+      }
     }
   }
 };
