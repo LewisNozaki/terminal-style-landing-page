@@ -81,7 +81,6 @@ a {
 
 .prompt {
   padding: 0.4rem;
-  /* border: 1px solid white; */
   width: 360px;
   max-width: 400px;
 }
@@ -99,7 +98,7 @@ a {
   color: aqua;
 }
 
-.status-bar {
+.directory {
   color: aquamarine;
 }
 
@@ -108,7 +107,6 @@ a {
 }
 
 .input-container {
-  /* border: 1px solid white; */
   width: calc(100% - 360px);
   padding: 0.4rem;
 }
@@ -127,8 +125,9 @@ a {
   opacity: 0.9;
 }
 
-/* .output-container {
-} */
+.output-container {
+  border: 1px solid white;
+}
 
 .opacity {
   opacity: 0.5;
