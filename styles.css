@@ -80,9 +80,8 @@ a {
 }
 
 .prompt {
-  padding: 0.2rem;
-  width: 360px;
-  max-width: 400px;
+  padding: 0.2rem 0.5rem;
+  width: 370px;
 }
 
 .main-directory {
@@ -102,7 +101,7 @@ a {
   color: aquamarine;
 }
 
-.dollar-sign {
+.bold {
   font-weight: 900;
 }
 
@@ -129,7 +128,7 @@ a {
 } */
 
 .output-prompt {
-  padding: 0.2rem;
+  padding: 0.2rem 0.5rem;
   width: 100%;
 }
 

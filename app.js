@@ -9,14 +9,14 @@ const createOutput = (e) => {
   if (e.code === "Enter") {
     let newElem = document.createElement("div");
     newElem.classList.add("output-prompt");
-
+    
     let promptResponse = `
-      <span class="main-directory">kenjinozaki.dev</span>
-      <span class="arrow"> &#x25ba; </span>
-      <span class="directory">~/my-app/</span>
-      <span class="arrow"> &#x25ba; </span>
-      <span class="branch">(&#x21c5; main)</span>
-      <span class="dollar-sign">$</span>
+      <span class="main-directory bold">kenjinozaki.dev</span>
+      <span class="arrow bold"> &#x25ba; </span>
+      <span class="directory bold">~/my-app/</span>
+      <span class="arrow bold"> &#x25ba; </span>
+      <span class="branch bold">(&#x21c5; main)</span>
+      <span class="bold">$</span>
       <span> &nbsp;${e.target.value}</span>
       `;
     
