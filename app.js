@@ -139,7 +139,9 @@ const createOutput = (e) => {
         }
       } else {
         e.preventDefault();
-        e.target.value = chosenOption;
+        if (chosenOption !== "") {
+          e.target.value = chosenOption;
+        }
       }
       
     }
