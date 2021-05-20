@@ -79,11 +79,11 @@ a {
 }
 
 .prompt {
-  padding: 0.2rem 0.5rem;
+  padding: 0.1rem 0.4rem;
   width: 370px;
 }
 
-.main-directory {
+.one {
   color: #bd93f9;
 }
 
@@ -92,11 +92,11 @@ a {
   font-weight: 900;
 }
 
-.branch {
+.two {
   color: aqua;
 }
 
-.directory {
+.three {
   color: aquamarine;
 }
 
@@ -106,7 +106,7 @@ a {
 
 .input-container {
   width: calc(100% - 360px);
-  padding: 0.2rem;
+  padding: 0.2rem 0;
 }
 
 #cmdline-input {
@@ -124,8 +124,7 @@ a {
 }
 
 .output-prompt {
-  padding: 0.2rem 0.5rem;
-  width: 100%;
+  padding: 0.1rem 0.4em;
 }
 
 .opacity {

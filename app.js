@@ -4,6 +4,8 @@ let cmdInput = document.getElementById("cmdline-input");
 
 let cmdOutput = document.getElementsByClassName("output-container")[0];
 
+let results = document.getElementsByClassName("results")[0];
+
 let prompts = [
   "exit",
   "help",
@@ -14,17 +16,17 @@ let prompts = [
 ];
 
 const createOutput = (e) => {
-  // Keypress Enter
+  /// Keypress Enter ///
   if (e.code === "Enter") {
     let newElem = document.createElement("div");
     newElem.classList.add("output-prompt");
 
     let promptResponse = `
-      <span class="main-directory bold">kenjinozaki.dev</span>
+      <span class="one bold">kenjinozaki.dev</span>
       <span class="arrow bold"> &#x25ba; </span>
-      <span class="directory bold">~/my-app/</span>
+      <span class="two bold">~/my-app/</span>
       <span class="arrow bold"> &#x25ba; </span>
-      <span class="branch bold">(&#x21c5; main)</span>
+      <span class="three bold">(&#x21c5; main)</span>
       <span class="bold">$</span>
       <span> &nbsp;${e.target.value}</span>
       `;
@@ -45,16 +47,33 @@ const createOutput = (e) => {
         document.exitFullscreen();
       }
     };
-    
+
     if (userInput === "refresh") {
       location.reload();
     };
 
-    // reset input value;
+    if (userInput === "help") {
+      let newElem2 = document.createElement("div");
+
+      let promptResponse2 = `
+      <div>
+        Type any of the following commands into the terminal and press [Enter] to execute
+      </div>`;
+
+      newElem2.innerHTML = promptResponse2;
+
+      cmdOutput.appendChild(newElem2);
+
+      newElem2.style.padding = "0.2rem 0.4rem";
+    }
+
+    // resets input value;
     e.target.value = "";
   } 
 
-  // Keypress Tab
+
+
+  /// Keypress Tab ///
   if (e.code === "Tab") {
     e.preventDefault();
 
