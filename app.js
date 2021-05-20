@@ -9,7 +9,7 @@ const createOutput = (e) => {
   if (e.code === "Enter") {
     let newElem = document.createElement("div");
     newElem.classList.add("output-prompt");
-    
+
     let promptResponse = `
       <span class="main-directory">kenjinozaki.dev</span>
       <span class="arrow"> &#x25ba; </span>
@@ -17,8 +17,9 @@ const createOutput = (e) => {
       <span class="arrow"> &#x25ba; </span>
       <span class="branch">(&#x21c5; main)</span>
       <span class="dollar-sign">$</span>
-      <span> &nbsp;${e.target.value}</span>`;
-
+      <span> &nbsp;${e.target.value}</span>
+      `;
+    
     newElem.innerHTML = promptResponse;
 
     cmdOutput.appendChild(newElem);
