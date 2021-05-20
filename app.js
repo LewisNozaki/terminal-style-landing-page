@@ -6,6 +6,8 @@ let cmdOutput = document.getElementsByClassName("output-container")[0];
 
 let results = document.getElementsByClassName("results")[0];
 
+let comment = document.getElementsByClassName("comment")[0];
+
 let prompts = [
   "exit",
   "help",
@@ -56,15 +58,17 @@ const createOutput = (e) => {
       let newElem2 = document.createElement("div");
 
       let promptResponse2 = `
-      <div>
-        Type any of the following commands into the terminal.
-      </div>
-      <ul>
-        ${prompts.map(item => 
-          `<li>${item}</li>`
-        ).join("")}
-      </ul>
-      <div>Press [Enter] to execute</div>`;
+      <div class="results">
+        <div>
+          Type any of the following commands into the terminal.
+        </div>
+        <ul>
+          ${prompts.map(item => 
+            `<li>${item}</li>`
+          ).join("")}
+        </ul>
+        <div>Press [Enter] to execute</div>
+      </div>`;
       
       newElem2.innerHTML = promptResponse2;
 
@@ -75,6 +79,7 @@ const createOutput = (e) => {
 
     // resets input value;
     e.target.value = "";
+    comment.innerHTML = "";
   } 
 
 
