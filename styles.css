@@ -71,7 +71,6 @@ a {
 }
 
 .content {
-  /* padding: .5em; */
   font-size: 0.9rem;
 }
 
@@ -123,9 +122,6 @@ a {
 #cmdline-input:focus-within .container {
   opacity: 0.9;
 }
-
-/* .output-container {
-} */
 
 .output-prompt {
   padding: 0.2rem 0.5rem;

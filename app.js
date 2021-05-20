@@ -4,12 +4,21 @@ let cmdInput = document.getElementById("cmdline-input");
 
 let cmdOutput = document.getElementsByClassName("output-container")[0];
 
+let prompts = [
+  "exit",
+  "help",
+  "ls",
+  "cat",
+  "clear",
+  "refresh",
+];
+
 const createOutput = (e) => {
   // Keypress Enter
   if (e.code === "Enter") {
     let newElem = document.createElement("div");
     newElem.classList.add("output-prompt");
-    
+
     let promptResponse = `
       <span class="main-directory bold">kenjinozaki.dev</span>
       <span class="arrow bold"> &#x25ba; </span>
@@ -24,34 +33,40 @@ const createOutput = (e) => {
 
     cmdOutput.appendChild(newElem);
 
-    if (e.target.value.toLowerCase() === "clear") {
+    let userInput = e.target.value.toLowerCase();
+
+    if (userInput === "clear") {
       cmdOutput.innerHTML = "";
     };
     
-    if (e.target.value.toLowerCase() === "exit") {
+    if (userInput === "exit") {
       document.getElementsByClassName("container")[0].style.display = "none";
       if (document.fullscreenElement) {
         document.exitFullscreen();
       }
     };
-
-    if (e.target.value.toLowerCase() === "refresh") {
-      cmdOutput.innerHTML = "";
+    
+    if (userInput === "refresh") {
       location.reload();
     };
 
+    // reset input value;
     e.target.value = "";
   } 
 
   // Keypress Tab
   if (e.code === "Tab") {
     e.preventDefault();
-    if (e.target.value === "h" ||
-        e.target.value === "he" ||
-        e.target.value === "hel") {
-      e.target.value = "help";
-      // e.preventDefault();
-    }
+
+    let str = e.target.value.toLowerCase();
+
+    prompts.forEach(item => {
+      if(item.search(str) === 0) {
+        console.log("found", item);
+
+        e.target.value = item;
+      };
+    });
   }
 };
 
