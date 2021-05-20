@@ -9,12 +9,12 @@ let results = document.getElementsByClassName("results")[0];
 let comment = document.getElementsByClassName("comment")[0];
 
 let prompts = [
-  "exit",
-  "help",
-  "ls",
-  "cat",
-  "clear",
-  "refresh",
+  ["exit", "~closes the terminal window"],
+  ["help", "~displays a list of commands"],
+  ["ls", "~displays all of the files in the directory"],
+  ["cat", "~executable command to open a specfic file. Type 'cat' before a file name to open that file"],
+  ["clear", "~clears the terminal"],
+  ["refresh", "~refreshes the browser window"],
 ];
 
 const createOutput = (e) => {
@@ -64,7 +64,7 @@ const createOutput = (e) => {
         </div>
         <ul>
           ${prompts.map(item => 
-            `<li>${item}</li>`
+            `<li>${item[0] + " " + item[1]}</li>`
           ).join("")}
         </ul>
         <div>Press [Enter] to execute</div>
@@ -86,17 +86,15 @@ const createOutput = (e) => {
 
   /// Keypress Tab ///
   if (e.code === "Tab") {
-    // e.preventDefault();
-
     let str = e.target.value.toLowerCase();
 
     if (str !== "") {
       e.preventDefault();
       prompts.forEach(item => {
-        if(item.search(str) === 0) {
-          console.log("found", item, "string:" + str);
+        if(item[0].search(str) === 0) {
+          console.log("found", item[0], "string:" + str);
   
-          e.target.value = item;
+          e.target.value = item[0];
         };
       });
     }
