@@ -19,6 +19,8 @@ let prompts = [
   ["refresh", " ~ refreshes the browser window"],
 ];
 
+let showOptionsAlready = false;
+
 const createOutput = (e) => {
   /// Keypress Enter ///
   if (e.code === "Enter") {
@@ -88,8 +90,6 @@ const createOutput = (e) => {
     comment.innerHTML = "";
   }
 
-
-
   /// Keypress Tab ///
   if (e.code === "Tab") {
     let str = e.target.value.toLowerCase();
@@ -109,29 +109,34 @@ const createOutput = (e) => {
       });
 
       if (optionsArray.length > 1) {
-        let newElem3 = document.createElement("div");
+        console.log(showOptionsAlready);
+        if (!showOptionsAlready) {
+          let newElem3 = document.createElement("div");
 
-        let optionList = optionsArray.map(item => { 
-          return `<button class="btn">${item}</button>`
-        }).join("");
-        
-        newElem3.innerHTML = optionList;
+          let optionList = optionsArray.map(item => { 
+            return `<button class="btn">${item}</button>`
+          }).join("");
+          
+          newElem3.innerHTML = optionList;
+  
+          options.appendChild(newElem3);
+  
+          comment.innerHTML = "";
+  
+          let btns = [...document.getElementsByClassName("btn")];
+  
+          btns.forEach(btn => {
+            btn.addEventListener("click", (elm) => {
+              e.target.value = elm.target.innerHTML;
+              e.target.focus();
+              // resets options div
+              options.innerHTML = "";
+            })
+          });
 
-        options.appendChild(newElem3);
-
-        comment.innerHTML = "";
-
-        let btns = [...document.getElementsByClassName("btn")];
-
-        btns.forEach(btn => {
-          btn.addEventListener("click", (elm) => {
-            e.target.value = elm.target.innerHTML;
-            e.target.focus();
-            // resets options div
-            options.innerHTML = "";
-          })
-        })
-
+          // So that if they tab again it doesn't duplicate the buttons in another row.
+          showOptionsAlready = true;
+        }
       } else {
         e.preventDefault();
         e.target.value = chosenOption;

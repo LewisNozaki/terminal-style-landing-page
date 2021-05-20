@@ -2,6 +2,10 @@
 /* Default */
 /* /////// */
 
+:root {
+  --font-color: #f8f8f2;
+}
+
 *,
 *:before,
 *:after {
@@ -40,6 +44,23 @@ a {
 
 li {
   list-style: none;
+}
+
+button {
+  background: none;
+  color: var(--font-color);
+  font-family: 'Courier New', Courier, monospace;
+  border: none;
+  padding: 0.3rem 1.5rem;
+  margin-right: 1rem;
+  outline: none;
+}
+
+button:hover,
+button:focus {
+  background: aquamarine;
+  color:#282a36;
+  font-weight: 700;
 }
 
 /* /////// */
@@ -83,7 +104,6 @@ li {
 .prompt {
   padding: 0.2rem 0.4rem;
   width: 370px;
-  /* background-color: #44475a; */
 }
 
 .one {
