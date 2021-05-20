@@ -80,7 +80,7 @@ a {
 }
 
 .prompt {
-  padding: 0.4rem;
+  padding: 0.2rem;
   width: 360px;
   max-width: 400px;
 }
@@ -108,7 +108,7 @@ a {
 
 .input-container {
   width: calc(100% - 360px);
-  padding: 0.4rem;
+  padding: 0.2rem;
 }
 
 #cmdline-input {
@@ -125,8 +125,12 @@ a {
   opacity: 0.9;
 }
 
-.output-container {
-  border: 1px solid white;
+/* .output-container {
+} */
+
+.output-prompt {
+  padding: 0.2rem;
+  width: 100%;
 }
 
 .opacity {

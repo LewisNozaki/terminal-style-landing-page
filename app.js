@@ -8,8 +8,8 @@ const createOutput = (e) => {
   // Keypress Enter
   if (e.code === "Enter") {
     let newElem = document.createElement("div");
-    newElem.classList.add("prompt");
-
+    newElem.classList.add("output-prompt");
+    
     let promptResponse = `
       <span class="main-directory">kenjinozaki.dev</span>
       <span class="arrow"> &#x25ba; </span>
@@ -17,18 +17,11 @@ const createOutput = (e) => {
       <span class="arrow"> &#x25ba; </span>
       <span class="branch">(&#x21c5; main)</span>
       <span class="dollar-sign">$</span>
-      <span>${e.target.value}</span>`;
-    
+      <span> &nbsp;${e.target.value}</span>`;
+
     newElem.innerHTML = promptResponse;
 
-    let newElem2 = document.createElement("div");
-
-    newElem2.classList.add("input-container");
-
-    newElem2.innerHTML = 
-
     cmdOutput.appendChild(newElem);
-
 
     if (e.target.value.toLowerCase() === "clear") {
       cmdOutput.innerHTML = "";
