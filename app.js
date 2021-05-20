@@ -111,7 +111,7 @@ const createOutput = (e) => {
         //   console.log(e.target);
         //   e.preventDefault();
         // });
-
+        
         let newElem3 = document.createElement("div");
 
         let optionList = optionsArray.map(item => { 
@@ -130,6 +130,7 @@ const createOutput = (e) => {
           btn.addEventListener("click", (elm) => {
             e.target.value = elm.target.innerHTML;
             e.target.focus();
+            options.innerHTML = "";
           })
         })
 
