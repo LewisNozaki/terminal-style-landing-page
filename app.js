@@ -91,6 +91,10 @@ const createOutput = (e) => {
     showOptionsAlready = false;
   }
 
+  if (e.code === "Backspace") {
+    showOptionsAlready = false;
+  };
+
   /// Keypress Tab ///
   if (e.code === "Tab") {
     let str = e.target.value.toLowerCase();
@@ -101,8 +105,6 @@ const createOutput = (e) => {
 
       prompts.forEach(item => {
         if(item[0].search(str) === 0) {
-          // console.log("found", item[0], "string:" + str);
-
           optionsArray.push(item[0]);
           
           chosenOption = item[0];
@@ -113,18 +115,24 @@ const createOutput = (e) => {
         if (!showOptionsAlready) {
           let newElem3 = document.createElement("div");
 
-          let optionList = optionsArray.map(item => { 
+          let optionList = "<button class='btn hidden'>hidden</button>";
+
+          optionList += optionsArray.map(item => { 
             return `<button class="btn">${item}</button>`
           }).join("");
+
+          optionList += "<button class='btn hidden'>hidden</button>";
           
           newElem3.innerHTML = optionList;
   
           options.appendChild(newElem3);
           
           comment.innerHTML = "";
-  
+          
           let btns = [...document.getElementsByClassName("btn")];
-  
+          
+          // console.log(btns);
+
           btns.forEach(btn => {
             btn.addEventListener("click", (elm) => {
               e.target.value = elm.target.innerHTML;
@@ -133,7 +141,6 @@ const createOutput = (e) => {
               options.innerHTML = "";
             })
           });
-
           // So that if they tab again it doesn't duplicate the buttons in another row.
           showOptionsAlready = true;
         }
@@ -164,7 +171,6 @@ const dragElement = (elmnt) => {
 
   // function that moves the container based on the position of the mouse
   const elementDrag = (e) => {
-    // prevents default behavior
     e = e || window.event;
     e.preventDefault();
 
@@ -256,11 +262,19 @@ document.addEventListener("click", (e) => {
   }
 });
 
+let btns = document.getElementsByClassName("btn");
+
 document.addEventListener("keydown", (e) => {
   if (e.code === "Tab") {
     if(!isFocused) {
       isFocused = !isFocused;
       mainContainer.classList.toggle("opacity")
+    }
+
+    console.log(document.activeElement);
+
+    if(btns[2] === document.activeElement) {
+      btns[0].focus();
     }
   }
 });

@@ -129,7 +129,7 @@ button:focus {
 
 .input-container {
   width: calc(100% - 360px);
-  padding: 0.2rem 0;
+  padding: 0.2rem 0.1rem;
   background-color: #44475a;
 }
 
@@ -155,6 +155,15 @@ button:focus {
   padding: 2rem;
   color: #8298dc;
   font-size: 1rem;
+}
+
+.hidden {
+  color: transparent;
+}
+
+.hidden:hover,
+.hidden:focus {
+  display: none;
 }
 
 .opacity {
