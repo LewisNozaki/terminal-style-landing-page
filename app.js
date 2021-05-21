@@ -19,11 +19,17 @@ let prompts = [
   ["refresh", " ~ refreshes the browser window"],
 ];
 
+let listOfFiles = [
+  "about.txt",
+  "contact.txt"
+];
+
 let showOptionsAlready = false;
 
 const createOutput = (e) => {
   /// Keypress Enter ///
   if (e.code === "Enter") {
+    // default behavior
     let newElem = document.createElement("div");
     newElem.classList.add("output-prompt");
 
@@ -40,6 +46,7 @@ const createOutput = (e) => {
     newElem.innerHTML = promptResponse;
     cmdOutput.appendChild(newElem);
 
+    // IF statements
     let userInput = e.target.value.toLowerCase();
 
     if (userInput === "clear") {
@@ -59,7 +66,7 @@ const createOutput = (e) => {
     };
 
     if (userInput === "help") {
-      let newElem2 = document.createElement("div");
+      let newElemHelp = document.createElement("div");
 
       let promptDisplay = prompts.map(item => 
         `<li>
@@ -75,22 +82,46 @@ const createOutput = (e) => {
           <ul>
             ${promptDisplay}
           </ul>
-          <div>Press [Enter] to execute</div>
+          <div>Press [Enter] to execute.</div>
         </div>`;
       
-      newElem2.innerHTML = promptResponse2;
+      newElemHelp.innerHTML = promptResponse2;
 
-      cmdOutput.appendChild(newElem2);
+      cmdOutput.appendChild(newElemHelp);
 
-      newElem2.style.padding = "0.2rem 0.4rem";
+      newElemHelp.style.padding = "0.2rem 0.4rem";
+    }
+
+    if (userInput === "ls") {
+      let newElemLS = document.createElement("div");
+
+      let listDisplay = listOfFiles.map(item => 
+        `<li>
+          <strong>${item}</strong>
+        </li>`
+      ).join("");
+      
+      let listDisplayDiv = `
+        <div class="results">
+          <ul>
+            ${listDisplay}
+          </ul>
+        </div>`;
+      
+      newElemLS.innerHTML = listDisplayDiv;
+
+      cmdOutput.appendChild(newElemLS);
+
+      newElemLS.style.padding = "0.2rem 0.4rem";
     }
 
     // resets input value;
     e.target.value = "";
     comment.innerHTML = "";
     showOptionsAlready = false;
-  }
+  };
 
+  /// Keypress Backspace ///
   if (e.code === "Backspace") {
     showOptionsAlready = false;
   };
@@ -127,8 +158,6 @@ const createOutput = (e) => {
           
           let btns = [...document.getElementsByClassName("btn")];
           
-          // console.log(btns);
-
           btns.forEach(btn => {
             btn.addEventListener("click", (elm) => {
               e.target.value = elm.target.innerHTML;
@@ -146,7 +175,8 @@ const createOutput = (e) => {
           e.target.value = chosenOption;
         }
       }
-      
+    } else {
+      e.preventDefault();
     }
   }
 };

@@ -175,9 +175,9 @@ button:focus {
   align-items: center;
 }
 
-#mydivheader:active {
-  /* cursor: grabbing; */
-}
+/* #mydivheader:active {
+  cursor: grabbing;
+} */
 
 .header-title {
   color: rgb(191, 188, 188);
