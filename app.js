@@ -115,14 +115,10 @@ const createOutput = (e) => {
         if (!showOptionsAlready) {
           let newElem3 = document.createElement("div");
 
-          let optionList = "<button class='btn hidden'>hidden</button>";
-
-          optionList += optionsArray.map(item => { 
+          let optionList = optionsArray.map(item => { 
             return `<button class="btn">${item}</button>`
           }).join("");
 
-          optionList += "<button class='btn hidden'>hidden</button>";
-          
           newElem3.innerHTML = optionList;
   
           options.appendChild(newElem3);
@@ -266,15 +262,14 @@ let btns = document.getElementsByClassName("btn");
 
 document.addEventListener("keydown", (e) => {
   if (e.code === "Tab") {
-    if(!isFocused) {
+    if (!isFocused) {
       isFocused = !isFocused;
       mainContainer.classList.toggle("opacity")
     }
-
-    console.log(document.activeElement);
-
-    if(btns[2] === document.activeElement) {
+    
+    if (document.activeElement === btns[1]) {
       btns[0].focus();
+      e.preventDefault();
     }
   }
 });

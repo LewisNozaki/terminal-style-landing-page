@@ -157,15 +157,6 @@ button:focus {
   font-size: 1rem;
 }
 
-.hidden {
-  color: transparent;
-}
-
-.hidden:hover,
-.hidden:focus {
-  display: none;
-}
-
 .opacity {
   opacity: 0.5;
 }
