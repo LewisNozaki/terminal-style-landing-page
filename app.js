@@ -213,13 +213,11 @@ const dragElement = (elmnt) => {
 
   // function that resets to default state
   const initializeElement = () => {
-    // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
   };
   
   const dragMouseDown = (e) => {
-    // prevents default behavior
     e = e || window.event;
     e.preventDefault();
 
@@ -233,12 +231,16 @@ const dragElement = (elmnt) => {
     // execute function whenever the cursor moves:
     document.onmousemove = elementDrag;
   };
-
+  
   // Add event listener to the header element inside the container
   cmdHeader.onmousedown = dragMouseDown;
 };
 
 dragElement(document.getElementById("mydiv"));
+
+document.getElementById("mydivheader").addEventListener("dblclick", (e) => {
+  document.getElementById("mydiv").classList.toggle("expand");
+});
 
 /////////////////////////////////////////////
 //////// Button Window Functionality ////////
