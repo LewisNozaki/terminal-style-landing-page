@@ -115,6 +115,14 @@ const createOutput = (e) => {
       newElemLS.style.padding = "0.2rem 0.4rem";
     }
 
+    if (userInput === "cat about.txt") {
+      console.log("about");
+    }
+
+    if (userInput === "cat contact.txt") {
+      console.log("contact");
+    }
+
     // resets input value;
     e.target.value = "";
     comment.innerHTML = "";
@@ -141,7 +149,7 @@ const createOutput = (e) => {
           chosenOption = item[0];
         };
       });
-
+      
       if (optionsArray.length > 1) {
         if (!showOptionsAlready) {
           let newElem3 = document.createElement("div");
