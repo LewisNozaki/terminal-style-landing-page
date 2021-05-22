@@ -21,7 +21,8 @@ let prompts = [
 
 let listOfFiles = [
   "about.txt",
-  "contact.txt"
+  "contact.txt",
+  "skills.txt"
 ];
 
 let showOptionsAlready = false;
@@ -117,10 +118,56 @@ const createOutput = (e) => {
 
     if (userInput === "cat about.txt") {
       console.log("about");
+      let newElemAbout = document.createElement("div");
+
+      let aboutMeTxt = `
+        <div>
+          Greetings!
+          <br><br>
+          My name is Lewis (Kenji) Nozaki and I'm a software developer and programmer located in Honolulu, HI. 
+          <br><br>
+          I have two years of programming experience working with front-end, back-end, database, and enterprise solutions technologies. 
+          <br><br>
+          I also have extensive experience working with core and enterprise applications in the financial industry. I've previously worked as a Data Analyst and a Core Systems Administrator prior to moving into programming, where my current position is a Programmer Analyst. 
+          <br><br>
+          Currently I am trying to shift focus and transition into a Front-end specific position. 
+          <br><br>
+          On my free time I enjoy playing and listening to music (I play guitar and bass), eating good food and hanging out with my awesome family. 
+          <br><br>
+          I would love to connect with you either personally or professionally.
+          <br><br>
+          -Kenji
+        </div>`;
+      
+      newElemAbout.innerHTML = aboutMeTxt;
+
+      cmdOutput.appendChild(newElemAbout);
+
+      newElemAbout.style.padding = "1rem";
     }
 
     if (userInput === "cat contact.txt") {
       console.log("contact");
+      let newElemLS = document.createElement("div");
+
+      let listDisplay = listOfFiles.map(item => 
+        `<li>
+          <strong>${item}</strong>
+        </li>`
+      ).join("");
+      
+      let listDisplayDiv = `
+        <div class="results">
+          <ul>
+            ${listDisplay}
+          </ul>
+        </div>`;
+      
+      newElemLS.innerHTML = listDisplayDiv;
+
+      cmdOutput.appendChild(newElemLS);
+
+      newElemLS.style.padding = "0.2rem 0.4rem";
     }
 
     // resets input value;
@@ -149,7 +196,7 @@ const createOutput = (e) => {
           chosenOption = item[0];
         };
       });
-      
+
       if (optionsArray.length > 1) {
         if (!showOptionsAlready) {
           let newElem3 = document.createElement("div");
@@ -159,7 +206,7 @@ const createOutput = (e) => {
           }).join("");
 
           newElem3.innerHTML = optionList;
-  
+          
           options.appendChild(newElem3);
           
           comment.innerHTML = "";
