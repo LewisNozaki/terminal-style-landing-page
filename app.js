@@ -117,7 +117,6 @@ const createOutput = (e) => {
     }
 
     if (userInput === "cat about.txt") {
-      console.log("about");
       let newElemAbout = document.createElement("div");
 
       let aboutMeTxt = `
@@ -147,29 +146,43 @@ const createOutput = (e) => {
     }
 
     if (userInput === "cat contact.txt") {
-      console.log("contact");
-      let newElemLS = document.createElement("div");
-
-      let listDisplay = listOfFiles.map(item => 
-        `<li>
-          <strong>${item}</strong>
-        </li>`
-      ).join("");
+      let newElemContact = document.createElement("div");
       
       let listDisplayDiv = `
-        <div class="results">
+        <div>
+          <h3>Contact:</h3>
           <ul>
-            ${listDisplay}
+            <h5>My Socials</h5>
+            <li>
+              <a href="https://github.com/lewisnozaki">Github</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/lhnozaki/">LinkedIn</a>
+            </li>
+            <li>
+              <a href="https://twitter.com/_______NZK">Twitter</a>
+            </li>
+            <h5>My Direct</h5>
+            <li>
+              PH: (808) 291-7101
+            </li>
+            <li>
+              Email: LHNOZAKI@outlook.com
+            </li>
           </ul>
         </div>`;
       
-      newElemLS.innerHTML = listDisplayDiv;
+      newElemContact.innerHTML = listDisplayDiv;
 
-      cmdOutput.appendChild(newElemLS);
+      cmdOutput.appendChild(newElemContact);
 
-      newElemLS.style.padding = "0.2rem 0.4rem";
+      newElemContact.style.padding = "1rem";
     }
 
+    if (userInput === "cat skills.txt") {
+      console.log("skills");
+    }
+    
     // resets input value;
     e.target.value = "";
     comment.innerHTML = "";

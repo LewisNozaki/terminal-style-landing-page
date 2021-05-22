@@ -42,6 +42,12 @@ a {
   color: #f8f8f2;
 }
 
+a:hover,
+a:focus {
+  background: aquamarine;
+  color:#282a36;
+}
+
 li {
   list-style: none;
 }
