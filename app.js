@@ -121,7 +121,7 @@ const createOutput = (e) => {
 
       let aboutMeTxt = `
         <div>
-          Greetings!
+          >h3>Greetings!</h3>
           <br><br>
           My name is Lewis (Kenji) Nozaki and I'm a software developer and programmer located in Honolulu, HI. 
           <br><br>
@@ -184,33 +184,25 @@ const createOutput = (e) => {
       
       let listDisplayDiv = `
         <div>
-          <h3>Contact:</h3>
-          <ul>
-            <h5>My Socials</h5>
-            <li>
-              <a href="https://github.com/lewisnozaki">Github</a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/lhnozaki/">LinkedIn</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/_______NZK">Twitter</a>
-            </li>
-            <h5>My Direct</h5>
-            <li>
-              PH: (808) 123-4567
-            </li>
-            <li>
-              Email: LHNOZAKI@outlook.com
-            </li>
-          </ul>
+          <h3>Skills & technologies:</h3>
+          <h5>Front End</h5>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>ReactJS</li>
+              <li>Redux</li>
+              <li>React Router</li>
+            </ul>
+          <h5>Back End</h5>
+          <h5>Others</h5>
         </div>`;
       
-      newElemContact.innerHTML = listDisplayDiv;
+      newElemSkills.innerHTML = listDisplayDiv;
 
-      cmdOutput.appendChild(newElemContact);
+      cmdOutput.appendChild(newElemSkills);
 
-      newElemContact.style.padding = "1rem";
+      newElemSkills.style.padding = "1rem";
     }
     
     // resets input value;
