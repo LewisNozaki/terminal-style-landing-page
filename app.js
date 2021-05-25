@@ -25,6 +25,12 @@ let listOfFiles = [
   "skills.txt"
 ];
 
+let catOptions = [
+  "cat about.txt",
+  "cat contact.txt",
+  "cat skills.txt"
+]
+
 let showOptionsAlready = false;
 
 const createOutput = (e) => {
@@ -284,6 +290,10 @@ const createOutput = (e) => {
       }
     } else {
       e.preventDefault();
+    }
+
+    if (str === "cat a") {
+      e.target.value = "cat about.txt";
     }
   }
 };
