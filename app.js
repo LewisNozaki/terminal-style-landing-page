@@ -193,9 +193,26 @@ const createOutput = (e) => {
               <li>ReactJS</li>
               <li>Redux</li>
               <li>React Router</li>
+              <li>GSAP</li>
             </ul>
           <h5>Back End</h5>
+            <ul>
+              <li>NodeJS</li>
+              <li>ExpressJS</li>
+              <li>PostgreSQL</li>
+              <li>SQL</li>
+              <li>Redis</li>
+              <li>GraphQL</li>
+              <li>MongoDB</li>
+              <li>Firebase</li>
+            </ul>
           <h5>Others</h5>
+            <ul>
+              <li>Affinity Designer</li>
+              <li>Adobe XD</li>
+              <li>Figma</li>
+              <li>AWS</li>
+            </ul>
         </div>`;
       
       newElemSkills.innerHTML = listDisplayDiv;
