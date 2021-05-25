@@ -102,7 +102,7 @@ button:focus {
 .content {
   font-size: 0.9rem;
   overflow: auto;
-  height: 90%;
+  height: calc(100% - 30px);
 }
 
 .cmdline {
