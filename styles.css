@@ -101,6 +101,7 @@ button:focus {
 
 .content {
   font-size: 0.9rem;
+  /* margin-top: 31px; */
 }
 
 .cmdline {
@@ -173,17 +174,15 @@ button:focus {
 
 #mydivheader {
   padding: 4px;
-  /* cursor: grab; */
-  z-index: 2;
+  /* z-index: 5; */
   background-color: #444;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
-
-/* #mydivheader:active {
-  cursor: grabbing;
-} */
 
 .header-title {
   color: rgb(191, 188, 188);

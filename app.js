@@ -31,6 +31,8 @@ let catOptions = [
   "cat skills.txt"
 ];
 
+let previousEntries = [];
+
 let showOptionsAlready = false;
 
 const createOutput = (e) => {
@@ -157,8 +159,8 @@ const createOutput = (e) => {
       let listDisplayDiv = `
         <div>
           <h3>Contact:</h3>
+          <h5>My Socials</h5>
           <ul>
-            <h5>My Socials</h5>
             <li>
               <a href="https://github.com/lewisnozaki">Github</a>
             </li>
@@ -168,7 +170,9 @@ const createOutput = (e) => {
             <li>
               <a href="https://twitter.com/_______NZK">Twitter</a>
             </li>
-            <h5>My Direct</h5>
+          </ul>
+          <h5>My Direct</h5>
+          <ul>
             <li>
               PH: (808) 123-4567
             </li>
