@@ -29,7 +29,7 @@ let catOptions = [
   "cat about.txt",
   "cat contact.txt",
   "cat skills.txt"
-]
+];
 
 let showOptionsAlready = false;
 
@@ -291,10 +291,17 @@ const createOutput = (e) => {
     } else {
       e.preventDefault();
     }
-
-    if (str === "cat a") {
-      e.target.value = "cat about.txt";
-    }
+    
+    if (str === "cat a" ||
+        str === "cat c" ||
+        str === "cat s") {
+      catOptions.forEach(item => {
+        if(item.search(str) === 0) {
+          e.target.value = item;
+          console.log(item);
+        };
+      });
+    };
   }
 };
 
