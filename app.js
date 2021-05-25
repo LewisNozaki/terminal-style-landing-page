@@ -164,7 +164,7 @@ const createOutput = (e) => {
             </li>
             <h5>My Direct</h5>
             <li>
-              PH: (808) 291-7101
+              PH: (808) 123-4567
             </li>
             <li>
               Email: LHNOZAKI@outlook.com
@@ -180,7 +180,37 @@ const createOutput = (e) => {
     }
 
     if (userInput === "cat skills.txt") {
-      console.log("skills");
+      let newElemSkills = document.createElement("div");
+      
+      let listDisplayDiv = `
+        <div>
+          <h3>Contact:</h3>
+          <ul>
+            <h5>My Socials</h5>
+            <li>
+              <a href="https://github.com/lewisnozaki">Github</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/lhnozaki/">LinkedIn</a>
+            </li>
+            <li>
+              <a href="https://twitter.com/_______NZK">Twitter</a>
+            </li>
+            <h5>My Direct</h5>
+            <li>
+              PH: (808) 123-4567
+            </li>
+            <li>
+              Email: LHNOZAKI@outlook.com
+            </li>
+          </ul>
+        </div>`;
+      
+      newElemContact.innerHTML = listDisplayDiv;
+
+      cmdOutput.appendChild(newElemContact);
+
+      newElemContact.style.padding = "1rem";
     }
     
     // resets input value;
