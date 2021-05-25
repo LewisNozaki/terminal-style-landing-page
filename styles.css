@@ -84,7 +84,7 @@ button:focus {
   height: 70vh;
   min-height: 32px;
   max-height: 100vh;
-  overflow: auto;
+  /* overflow: auto; */
   position: absolute;
   z-index: 3;
   resize: both;
@@ -101,7 +101,8 @@ button:focus {
 
 .content {
   font-size: 0.9rem;
-  /* margin-top: 31px; */
+  overflow: auto;
+  height: 90%;
 }
 
 .cmdline {
@@ -174,14 +175,11 @@ button:focus {
 
 #mydivheader {
   padding: 4px;
-  /* z-index: 5; */
+  z-index: 5;
   background-color: #444;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
 }
 
 .header-title {
