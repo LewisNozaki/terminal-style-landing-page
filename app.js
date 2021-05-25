@@ -296,9 +296,7 @@ const createOutput = (e) => {
       e.preventDefault();
     }
     
-    if (str === "cat a" ||
-        str === "cat c" ||
-        str === "cat s") {
+    if (str.length >= 5) {
       catOptions.forEach(item => {
         if(item.search(str) === 0) {
           e.target.value = item;
