@@ -127,7 +127,7 @@ const createOutput = (e) => {
 
       let aboutMeTxt = `
         <div>
-          >h3>Greetings!</h3>
+          <h3>Greetings!</h3>
           <br><br>
           My name is Lewis (Kenji) Nozaki and I'm a software developer and programmer located in Honolulu, HI. 
           <br><br>
@@ -298,7 +298,6 @@ const createOutput = (e) => {
       catOptions.forEach(item => {
         if(item.search(str) === 0) {
           e.target.value = item;
-          console.log(item);
         };
       });
     };
