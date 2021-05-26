@@ -39,6 +39,10 @@ let showOptionsAlready = false;
 
 let pos;
 
+/////////////////////////////////////////
+//////// Key press functionality ////////
+/////////////////////////////////////////
+
 const createOutput = (e) => {
   /// Keypress Enter ///
   if (e.code === "Enter") {
@@ -334,7 +338,7 @@ const createOutput = (e) => {
     };
   }
 
-  /// Keypress Arrowkeys ///
+  /// Keypress ArrowUp ///
   if (e.code === "ArrowUp") {
     if (pos <= previousEntries.length) {
       e.target.value = previousEntries[previousEntries.length - pos]
@@ -342,11 +346,10 @@ const createOutput = (e) => {
     }
   };
 
-  /// Keypress Arrowkeys ///
+  /// Keypress ArrowDown ///
   if (e.code === "ArrowDown") {
     if (pos > 1) {
       pos -= 1;
-      console.log(pos);
       e.target.value = previousEntries[previousEntries.length - pos];
     }
   };
