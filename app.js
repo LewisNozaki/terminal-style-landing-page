@@ -35,6 +35,8 @@ let previousEntries = [];
 
 let showOptionsAlready = false;
 
+let pos;
+
 const createOutput = (e) => {
   /// Keypress Enter ///
   if (e.code === "Enter") {
@@ -231,11 +233,15 @@ const createOutput = (e) => {
 
       newElemSkills.style.padding = "1rem";
     }
-    
+
+    // inserts value to array
+    previousEntries.push(e.target.value);
+
     // resets input value;
     e.target.value = "";
     comment.innerHTML = "";
     showOptionsAlready = false;
+    pos = 1;
   };
 
   /// Keypress Backspace ///
@@ -304,6 +310,22 @@ const createOutput = (e) => {
       });
     };
   }
+
+  /// Keypress Arrowkeys ///
+  if (e.code === "ArrowUp") {
+    if (pos <= previousEntries.length) {
+      e.target.value = previousEntries[previousEntries.length - pos]
+      pos += 1;
+    }
+  };
+  
+  /// Keypress Arrowkeys ///
+  if (e.code === "ArrowDown") {
+    if (pos <= previousEntries.length) {
+      e.target.value = previousEntries[previousEntries.length - pos]
+      pos -= 1;
+    }
+  };
 };
 
 cmdInput.addEventListener("keydown", createOutput);
