@@ -321,9 +321,10 @@ const createOutput = (e) => {
   
   /// Keypress Arrowkeys ///
   if (e.code === "ArrowDown") {
-    if (pos <= previousEntries.length) {
-      e.target.value = previousEntries[previousEntries.length - pos]
+    if (pos > 1) {
       pos -= 1;
+      console.log(pos);
+      e.target.value = previousEntries[previousEntries.length - pos];
     }
   };
 };
