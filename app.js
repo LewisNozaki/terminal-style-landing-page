@@ -22,13 +22,15 @@ let prompts = [
 let listOfFiles = [
   "about.txt",
   "contact.txt",
-  "skills.txt"
+  "skills.txt",
+  "projects.txt"
 ];
 
 let catOptions = [
   "cat about.txt",
   "cat contact.txt",
-  "cat skills.txt"
+  "cat skills.txt",
+  "cat projects.txt"
 ];
 
 let previousEntries = [];
@@ -234,6 +236,27 @@ const createOutput = (e) => {
       newElemSkills.style.padding = "1rem";
     }
 
+    if (userInput === "cat projects.txt") {
+      let newElemProjects = document.createElement("div");
+      
+      let listDisplayDiv = `
+        <div>
+          <h3>My Projects:</h3>
+          <h5>Terminal Style Web Application</h5>
+            <ul>
+              <li>A web app styled like an terminal (iTerm2) on a MacOS computer.</li>
+              <li>Built entirely with HTML, CSS and JavaScript. No additional libraries.</li>
+            </ul>
+          <h5>More to come!</h5>
+        </div>`;
+      
+      newElemProjects.innerHTML = listDisplayDiv;
+
+      cmdOutput.appendChild(newElemProjects);
+
+      newElemProjects.style.padding = "1rem";
+    }
+
     // inserts value to array
     previousEntries.push(e.target.value);
 
@@ -318,7 +341,7 @@ const createOutput = (e) => {
       pos += 1;
     }
   };
-  
+
   /// Keypress Arrowkeys ///
   if (e.code === "ArrowDown") {
     if (pos > 1) {
