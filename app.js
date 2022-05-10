@@ -337,7 +337,7 @@ const createOutput = (e) => {
       });
     };
   }
-
+  
   /// Keypress ArrowUp ///
   if (e.code === "ArrowUp") {
     if (pos <= previousEntries.length) {
